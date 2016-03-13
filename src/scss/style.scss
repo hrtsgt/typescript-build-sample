@@ -1,0 +1,11 @@
+$color-black: #000;
+$color-white: #FFF;
+
+body {
+  background: $color-black;
+}
+
+.hello {
+  text-align: center;
+  color: $color-white;
+}

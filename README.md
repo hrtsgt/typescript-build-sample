@@ -4,9 +4,8 @@
 
 ```
 npm install gulp -g
-npm webpack -g
+npm install webpack -g
 npm install typescript -g
-
 ```
 
 ##Fetch dependencies

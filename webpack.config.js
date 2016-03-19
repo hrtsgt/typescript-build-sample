@@ -1,7 +1,10 @@
+'use strict'
+
 var path = require('path');
 var webpack = require("webpack");
+var env = process.env.NODE_ENV;
 
-module.exports = {
+var config = {
   entry: {
     app :'./src/ts/entrypoint.ts'
   },
@@ -17,16 +20,25 @@ module.exports = {
 
   module: {
     loaders: [
-        // { test: /\.ts$/, loader: 'ts-loader' }
-        { test: /\.ts$/, loader: 'awesome-typescript-loader'}]
+        { test: /\.ts$/, loader: 'ts-loader' }]
+        // { test: /\.ts$/, loader: 'awesome-typescript-loader'}]
   },
 
   plugins: [
-    // js圧縮
-    // new webpack.optimize.UglifyJsPlugin({
-    //   compress: {
-    //       warnings: false
-    //   }
-    // })
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(env)
+    }),
+    new webpack.optimize.OccurrenceOrderPlugin(),
   ]
 }
+
+if (env === "production") {
+  // JS圧縮
+  config.plugins.push(new webpack.optimize.UglifyJsPlugin({
+    compress: {
+      warnings: false
+    }
+  }));
+}
+
+module.exports = config;

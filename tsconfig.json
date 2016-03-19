@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "removeComments": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "target": "es5"
   },
   "exclude": [
     "node_modules",

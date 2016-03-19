@@ -1,3 +1,5 @@
+"use strict";
+
 import Person from './class';
-// var person = new Person('Steve');
-// person.say();
+var person = new Person();
+person.say();

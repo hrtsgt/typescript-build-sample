@@ -42,9 +42,33 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var class_1 = __webpack_require__(1);
+	var person = new class_1.default();
+	person.say();
+
+
+/***/ },
+/* 1 */
 /***/ function(module, exports) {
 
 	"use strict";
+	var Person = (function () {
+	    function Person(name, extention) {
+	        if (name === void 0) { name = 'contact'; }
+	        if (extention === void 0) { extention = "!!!!"; }
+	        this.name = name;
+	        this.extention = extention;
+	    }
+	    Person.prototype.say = function () {
+	        alert("Hello, 1st " + this.name + this.extention);
+	    };
+	    return Person;
+	}());
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = Person;
 
 
 /***/ }

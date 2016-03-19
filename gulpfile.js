@@ -20,7 +20,7 @@ gulp.task('webpack', () => {
   .pipe(gulp.dest('./dist'));
 });
 
-// // 簡易サーバーを立ち上げる
+// 簡易サーバーを立ち上げる
 gulp.task('serve', () => {
   gulp.src('./')
     .pipe(webserver({

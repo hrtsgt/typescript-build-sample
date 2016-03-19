@@ -1,11 +1,20 @@
-class Person {
-    constructor(
-        private name:string = 'dummy'
-    ) {}
+"use strict";
 
-    public say():void {
-       console.log('Hello, I\'m ' + this.name + '!!');
-      //  alert("test");
-    }
+/**
+ *
+ */
+class Person {
+
+  constructor(private name: string = 'contact', public extention = "!!!!") {
+
+  }
+
+  /**
+   *
+   */
+  public say(): void {
+    alert(`Hello, 1st ${this.name}${this.extention}`);
+  }
 }
+
 export default Person;

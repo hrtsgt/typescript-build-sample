@@ -1,10 +1,10 @@
 'use strict'
 
-var path = require('path');
-var webpack = require("webpack");
-var env = process.env.NODE_ENV;
+const path = require('path');
+const webpack = require("webpack");
+const env = process.env.NODE_ENV;
 
-var config = {
+let config = {
   entry: {
     app :'./src/ts/entrypoint.ts'
   },
@@ -15,8 +15,6 @@ var config = {
     // root:[path.join(__dirname,'node_modules')],
     extensions: ['', '.ts', '.webpack.js', '.web.js', '.js']
   },
-
-  devtool: 'source-map',
 
   module: {
     loaders: [
@@ -32,13 +30,16 @@ var config = {
   ]
 }
 
-if (env === "production") {
+if (env === 'production') {
   // JS圧縮
   config.plugins.push(new webpack.optimize.UglifyJsPlugin({
     compress: {
       warnings: false
     }
   }));
+} else {
+  // ソースマップ
+  config.devtool = 'source-map';
 }
 
 module.exports = config;
